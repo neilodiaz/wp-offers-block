@@ -4,8 +4,8 @@ jQuery(function($) {
         infinite: true,
         slidesToShow: 5,
         slidesToScroll: 1,
-        // autoplay: true,
-        // autoplaySpeed: 1500,
+        autoplay: true,
+        autoplaySpeed: 2000,
         prevArrow: null,
         nextArrow: null,
     });
