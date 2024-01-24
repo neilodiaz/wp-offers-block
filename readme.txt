@@ -20,7 +20,7 @@ First plugin I made for Gutenberg and JSX.
 4. On the right, you should see a Settings section to add your API End Point.
 
 
-== WIP ==
+== WIP (As of submission) ==
 
 - Validation
 - Caching

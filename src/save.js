@@ -76,8 +76,8 @@ export default function save({ attributes }) {
 												</ul>
 											</div>
 											<div class="cta-button-container">
-												<a href="" class="cta-button">PLAY NOW</a>
-												<span class="text-underline">Terms 18+</span> | <span class="text-underline">Review</span>
+												<a href="" class="cta-button">{apiResponse.record.offers[offer].cta.one}</a>
+												<span class="text-underline">{apiResponse.record.offers[offer].cta.two}</span> | <span class="text-underline"><a href={apiResponse.record.offers[offer].cta.links.review}>Review</a></span>
 											</div>
 										</div>
 										<div class="preview-container">
@@ -86,7 +86,7 @@ export default function save({ attributes }) {
 										</div>
 									</div>
 									<div class="offer-item-footer">
-										<span class="fine-print">Spinaway LLC Registration #C148106</span> | <span class="disclaimer">Gambling addiction: Play responsibly</span>
+										<span class="fine-print">{apiResponse.record.offers[offer].fine_print}</span> | <span class="disclaimer">{apiResponse.record.offers[offer].disclaimer}</span>
 									</div>
 								</div>
 							</>
