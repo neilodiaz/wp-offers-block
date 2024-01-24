@@ -1,0 +1,98 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,800&display=swap);
+.wp-block-create-block-offers-block {
+    background-color: #21759b;
+    color: #fff;
+    padding: 2px;
+}
+
+.offers-wrapper {
+    --wp--style--global--content-size: 1200px;
+    width: 100%;
+    .offer-item {
+        background-color: #fafafa;
+        border: 1px solid #fafafa;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        .offer-item-footer {
+            padding: 2px;
+            border-top: 1px solid #cdd6df;
+            text-align: center;
+            font-size: 0.7em;
+        }
+    }
+}
+
+.offer-item-body {
+    position: relative;
+    padding: 8px;
+    .ribbon-container {
+        position: absolute;
+        background-color: #129c29;
+        color: #fff;
+        padding: 3px 15px;
+        font-size: 0.9em;
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+    .preview-container {
+        background-color: #ffa502;
+        color: #fff;
+    }
+    .content {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: space-around;
+        align-content: space-around;
+        padding: 10px;
+    }
+    .headlines-container {
+        text-align: center;
+        .headline-one {
+            color: #51b12f;
+            font-weight: 700;
+            font-size: 2em;
+            text-align: center;
+            width: min-content;
+            white-space: break-space;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1em;
+        }
+        .headline-two {
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #383838;
+        }
+        .headline-three {
+            font-weight: 500;
+            font-size: 1em;
+            color: #4b4b4b;
+        }
+    }
+    .cta-button-container {
+        .cta-button {
+            display: block;
+            background: #51b12f;
+            color: #FFF;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .text-underline {
+            font-size: 0.9em;
+            text-decoration: underline;
+            display: inline-block;
+        }
+    }
+}
