@@ -77,7 +77,7 @@ export default function save({ attributes }) {
 											</div>
 											<div class="cta-button-container">
 												<a href="" class="cta-button">{apiResponse.record.offers[offer].cta.one}</a>
-												<span class="text-underline">{apiResponse.record.offers[offer].cta.two}</span> | <span class="text-underline"><a href={apiResponse.record.offers[offer].cta.links.review}>Review</a></span>
+												<span class="text-underline">{apiResponse.record.offers[offer].cta.two}</span> | <span class="text-underline"><a href={apiResponse.record.offers[offer].links.review}>Review</a></span>
 											</div>
 										</div>
 										<div class="preview-container">
