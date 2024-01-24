@@ -14,7 +14,13 @@
                     <div class="headline-three">+100 Free Spins</div>
                 </div>
                 <div class="deposits-container">
-
+                    <ul class="rating" data-rating="4.5">
+                        <li class="rating__item"></li>
+                        <li class="rating__item"></li>
+                        <li class="rating__item"></li>
+                        <li class="rating__item"></li>
+                        <li class="rating__item"></li>
+                    </ul>
                 </div>
                 <div class="bullets-container">
                     <ul class="bullets">
@@ -30,7 +36,7 @@
                 </div>
             </div>
             <div class="preview-container">
-                <span></span>
+                <span><img src="images/preview-photo.png" alt=""></span>
                 <span>Preview</span>
             </div>
         </div>

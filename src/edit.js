@@ -39,11 +39,10 @@ export default function Edit({ attributes, setAttributes }) {
         className: 'offers-block',
     });
 
-    const { apiEndpoint } = attributes;
-    const { createErrorNotice, removeNotice } = useDispatch(noticesStore);
+    const { apiEndpoint, apiResponse } = attributes;
+    let isValidUrl = true
 
     const onChangeEndpoint = (newEndpoint) => {
-        let is_valid_url = isValidUrl(newEndpoint)
         // if ( !is_valid_url ) {
         // 	/* Dispatch error notice */
         //     createErrorNotice('Sub title is required', {
@@ -62,38 +61,34 @@ export default function Edit({ attributes, setAttributes }) {
         //     wp.data.dispatch('core/editor').unlockPostSaving('subtitle-required');
         //     wp.data.dispatch('core/editor').unlockPostAutosaving('subtitle-required');
         // }
-        setAttributes({ apiEndpoint: newEndpoint });
 
-        // fetch('https://api.jsonbin.io/v3/b/65aa4442dc74654018964dd9/', {
-        //     method: 'GET',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //     },
-        // })
-        // .then(response => response.json())
-        // .then(api_response => setAttributes({ apiResponse: api_response }))
+        // Regular expression for URL validation
+        const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
+        if (urlRegex.test(newEndpoint)) {
+            setAttributes({ apiEndpoint: newEndpoint });
+            isValidUrl = true
+            console.log('VALID URL')
+        } else {
+            isValidUrl = false
+            console.log('Invalid URL')
+        }
     };
 
+    // Fetch data from API and save to our Attributes
     const fetchApiData = async () => {
         try {
             const response = await fetch(attributes.apiEndpoint);
             const data = await response.json();
-            console.log(data)
             setAttributes({ apiResponse: data });
         } catch (error) {
             console.error('Error fetching API:', error);
         }
     };
 
-    const isValidUrl = urlString => {
-        var urlPattern = new RegExp('^(https?:\\/\\/)?' + // validate protocol
-            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // validate domain name
-            '((\\d{1,3}\\.){3}\\d{1,3}))' + // validate OR ip (v4) address
-            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // validate port and path
-            '(\\?[;&a-z\\d%_.~+=-]*)?' + // validate query string
-            '(\\#[-a-z\\d_]*)?$', 'i'); // validate fragment locator
-        return !!urlPattern.test(urlString);
-    }
+    // Should Only Fetch API if Endpoint is not Empty
+    if (attributes.apiEndpoint)
+        fetchApiData()
 
     return (
         <>
@@ -115,7 +110,6 @@ export default function Edit({ attributes, setAttributes }) {
                                 className="is-required"
                                 required
                             />
-                            <Button onClick={fetchApiData}>Fetch API Data</Button>
                         </fieldset>
                     </PanelRow>
                 </PanelBody>

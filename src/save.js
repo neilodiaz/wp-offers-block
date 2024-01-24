@@ -21,16 +21,78 @@ export default function save({ attributes }) {
 	} );
 	const className = blockProps.className;
 	const { apiEndpoint, apiResponse } = attributes;
-	console.log( apiResponse );
 
 	return (
 		<>
-			<p { ...blockProps } className={ className }>{apiEndpoint}</p>
+			<p {...blockProps}>Offers Block - This will display all offers from an external API</p>
 			{apiResponse && apiResponse.record && (
-				<div>
-					{Object.keys(apiResponse.record.offers).map((key)=>(
-						<p>{key}</p>
-					))}
+				
+				<div class="offers-wrapper">{
+					Object.keys(apiResponse.record.offers).map((offer,i)=>{
+						return (<>
+								<div class="offer-item" key={i}>
+									<div class="offer-item-body">
+										{apiResponse.record.offers[offer].ribbon && (
+											<div class="ribbon-container">
+												<span>{apiResponse.record.offers[offer].ribbon}</span>
+											</div>
+										)}
+										<div class="content">
+											<div class="logo-container">
+												<img class="logo" src={apiResponse.record.offers[offer].logo.dark} alt={apiResponse.record.offers[offer].brand} width="300" />
+											</div>
+											<div class="headlines-container">
+												<div class="headline-one">{apiResponse.record.offers[offer].headlines.one.title}</div>
+												<div class="headline-two">{apiResponse.record.offers[offer].headlines.two.title}</div>
+												<div class="headline-three">{apiResponse.record.offers[offer].headlines.three.title}</div>
+											</div>
+											<div class="deposits-container">
+												<ul class="rating" data-rating="3.5">
+													<li class="rating__item"></li>
+													<li class="rating__item"></li>
+													<li class="rating__item"></li>
+													<li class="rating__item"></li>
+													<li class="rating__item"></li>
+												</ul>
+												<div class="deposits" id="depositSlider">
+													{
+														Object.entries(apiResponse.record.offers[offer].deposits).map(([key, deposit]) => {
+															return (
+																<div class="deposit-logo"><img src={deposit.dark_url} alt="" /></div>
+															);
+														})
+													}
+												</div>
+											</div>
+											<div class="bullets-container">
+												<ul class="bullets">
+													{
+														Object.entries(apiResponse.record.offers[offer].bullet_points).map(([key, point]) => {
+															return (
+																<li class="bullet-item">{point.title}</li>
+															);
+														})
+													}
+												</ul>
+											</div>
+											<div class="cta-button-container">
+												<a href="" class="cta-button">PLAY NOW</a>
+												<span class="text-underline">Terms 18+</span> | <span class="text-underline">Review</span>
+											</div>
+										</div>
+										<div class="preview-container">
+											<span><img src="images/preview-photo.png" alt="" /></span>
+											<span>Preview</span>
+										</div>
+									</div>
+									<div class="offer-item-footer">
+										<span class="fine-print">Spinaway LLC Registration #C148106</span> | <span class="disclaimer">Gambling addiction: Play responsibly</span>
+									</div>
+								</div>
+							</>
+						)
+					})
+					}
 				</div>
 			)}
 		</>

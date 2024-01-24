@@ -13,7 +13,8 @@
             "type": "string"
         },
         "apiResponse": {
-            "type": "string"
+            "type": "array",
+            "default": []
         }
     },
     "supports": {
@@ -22,6 +23,5 @@
     "textdomain": "offers-block",
     "editorScript": "file:./index.js",
     "editorStyle": "file:./index.css",
-    "style": "file:./style-index.css",
-    "render": "file:./render.php"
+    "style": "file:./style-index.css"
 }
